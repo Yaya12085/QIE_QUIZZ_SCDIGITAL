@@ -1,0 +1,37 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background-color: white;
+  padding: 10px 20px;
+  height: 60px;
+  color: black;
+}
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  height: 100%;
+}
+nav ul:last-child {
+  justify-content: space-between;
+  width: 50%;
+}
+nav ul li {
+  height: 100%;
+}
+nav ul li img {
+  height: 100%;
+}
+.nav-link {
+  text-decoration: none;
+  color: black;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}

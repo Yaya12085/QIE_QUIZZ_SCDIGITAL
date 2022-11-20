@@ -1,0 +1,74 @@
+.header {
+  height: max-content;
+  width: 100%;
+  background-image: url("../assets/images/header.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 10px;
+  position: relative;
+}
+.header::before {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.48);
+  content: "";
+  height: 100%;
+  width: 100%;
+}
+.header-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.header .description {
+  background: rgba(179, 191, 255, 0.25);
+  padding: 20px;
+  width: 90%;
+  height: 74px;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-all;
+  z-index: 1;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.header .sub-description {
+  color: white;
+  display: flex;
+  word-break: break-all;
+  z-index: 1;
+  margin-top: 20px;
+  font-size: 16px;
+}
+.home-img {
+  width: 500px;
+  margin: 10px;
+}
+.home-text {
+  text-align: center;
+  margin: 10px 0;
+  padding: 2px 20px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  width: 100%;
+  padding: 20px;
+  background: #ffffff;
+}
