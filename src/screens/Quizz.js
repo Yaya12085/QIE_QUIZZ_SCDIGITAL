@@ -7,26 +7,8 @@ import { questionData } from "../data/questionData";
 const Quizz = () => {
   let score = 0;
   const navigate = useNavigate();
-  const [prevStep, setPrevStep] = useState(0);
-  const [activeStep, setActiveStep] = useState(1);
 
-  const handleNext = () => {
-    setPrevStep((prevActiveStep) => prevActiveStep + 1);
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    handleOnchange();
-  };
-
-  const handleBack = () => {
-    setPrevStep((prevActiveStep) => prevActiveStep - 1);
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleReset = () => {
-    setPrevStep(0);
-    setActiveStep(1);
-  };
-
-  const handleOnchange = () => {
+  const handleOnchange = (e) => {
     const checkedRadios = document.querySelectorAll(
       "input[type='radio']:checked"
     );
@@ -36,6 +18,13 @@ const Quizz = () => {
     }
     console.log(score);
   };
+  useEffect(() => {
+    document.title = "Test du Quotient Intellectuel de L’Entrepreneur";
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <div className="marginTop">
@@ -45,16 +34,14 @@ const Quizz = () => {
           "Rentrez des informations verridiques pour que le resultat soit exact"
         }
       />
-      <p className="card-2">
-        {activeStep}/{questionData.length}
-      </p>
+
       <div className="grid">
         <div className="card-2">
-          {questionData.slice(prevStep, activeStep).map((quest, index) => {
+          {questionData.map((quest, index) => {
             return (
               <form key={index}>
                 <p className="question">
-                  {activeStep}. {quest.question}
+                  {index + 1}. {quest.question}
                 </p>
                 {quest.responses.map((res, index) => {
                   return (
@@ -76,21 +63,10 @@ const Quizz = () => {
             );
           })}
           <div className="grid">
-            {activeStep > 1 && (
-              <>
-                <Button value={"Remise a zero"} onClick={() => handleReset()} />
-                <Button value={"Précédant"} onClick={() => handleBack()} />
-              </>
-            )}
-
-            {activeStep !== questionData.length ? (
-              <Button value={"Suivant"} onClick={() => handleNext()} />
-            ) : (
-              <Button
-                value={"Voir mon resultat"}
-                onClick={() => navigate("/result", { state: { score: score } })}
-              />
-            )}
+            <Button
+              value={"Voir mon resultat"}
+              onClick={() => navigate("/result", { state: { score: score } })}
+            />
           </div>
         </div>
       </div>

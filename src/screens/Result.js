@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import Card from "../components/Card";
@@ -8,6 +8,14 @@ const Result = () => {
   const { state } = useLocation();
   const { score } = state;
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "Résultat de votre test";
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   if (!state) {
     return (
@@ -33,8 +41,12 @@ const Result = () => {
   return (
     <div className="marginTop">
       <Header title={"Résultat de votre test"} />
+
       <div className="grid">
-        <Card number={score} text={"Votre score"} />
+        <div className="small-card">
+          <span>{score}</span>
+          <span>point{score > 1 ? "s" : ""}</span>
+        </div>
       </div>
 
       <div className="card">

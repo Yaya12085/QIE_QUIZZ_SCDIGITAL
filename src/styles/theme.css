@@ -24,7 +24,7 @@ body {
   cursor: pointer;
   font-weight: bold;
   width: max-content;
-  margin: 10px 0;
+  margin: 10px;
 }
 .page-content {
   display: flex;
